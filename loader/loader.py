@@ -22,10 +22,8 @@ def add_post():
     picture = request.files.get('picture')
     content = request.form.get('content')
 
-
     if not picture or not content:
         return "нет картинки или текста"
-
 
     try:
 
@@ -42,6 +40,3 @@ def add_post():
 
     except:
         return "Ошибка загрузки поста"
-
-
-
