@@ -1,7 +1,7 @@
 from flask import json
 
 
-def get_post_list(file_name: json) -> list[dict]:
+def get_post_list(file_name: json):
     """
     функция выгружает данные из json в список словарей
     :param file_name:
@@ -28,5 +28,3 @@ def get_post(post_list: list, search_word: str) -> list:
             answer_list.append(post)
 
     return answer_list
-
-

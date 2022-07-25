@@ -1,10 +1,10 @@
 from flask import json
 
 
-def get_post_list(file_name: json) -> list[dict]:
+def get_post_list(file_name: json):
     """
     функция выгружает данные из json в список словарей
-    :param file_name:
+    :param:
     :return:
     """
 
@@ -42,6 +42,14 @@ def load_post(file_name, pic_path, content) -> dict:
     with open(file_name, 'w', encoding='utf-8') as file:
         json.dump(post_list, file, ensure_ascii=False)
 
-    post = {'pic': pic_path, 'content': content}
+    return {'pic': pic_path, 'content': content}
 
-    return post
+
+def get_cheking_extention(picture) -> bool:
+    """
+    функция проверки разрешенного расширения файла картинки
+    :return:
+    """
+    allowed_extensions = {'png', 'jpg', 'jpeg'}
+
+    return picture.filename.split('.')[-1].lower() in allowed_extensions
