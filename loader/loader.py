@@ -9,6 +9,7 @@ loader_blueprint = Blueprint('loader_blueprint', __name__, template_folder='temp
 
 @loader_blueprint.route('/post')
 def post_page():
+    # страница загрузки поста
     return render_template('post_form.html')
 
 
@@ -18,10 +19,10 @@ def add_post():
     загружает новый пост
     :return:
     """
-
+    # берем данные из тела запроса
     picture = request.files.get('picture')
     content = request.form.get('content')
-
+    # проверка наличия всех данных в форме нового поста
     if not picture or not content:
         return "нет картинки или текста"
 
